@@ -1,0 +1,51 @@
+{
+  "name": "pur",
+  "version": "0.0.1",
+  "description": "Alias and glob powered multi-threaded shell execution",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register",
+    "prebuild": "mkdirp lib && npm run clean",
+    "build": "babel src -d lib -m commonStrict",
+    "clean": "rimraf lib/*",
+    "prepublish": "npm run build",
+    "watch": "nodemon -q -w src/ --exec 'npm run build'"
+  },
+  "bin": {
+    "pur": "./lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdfreder/pur.git"
+  },
+  "keywords": [
+    "pur",
+    "glob",
+    "batch",
+    "shell",
+    "exec",
+    "execute",
+    "command",
+    "cmd",
+    "alias",
+    "powered"
+  ],
+  "author": "Jonathan Frederic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdfreder/pur/issues"
+  },
+  "homepage": "https://github.com/jdfreder/pur#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.3.3",
+    "nodemon": "^1.7.1",
+    "rimraf": "^2.4.3"
+  },
+  "dependencies": {
+    "configstore": "^1.2.1",
+    "glob": "^5.0.15",
+    "underscore": "^1.8.3"
+  }
+}
