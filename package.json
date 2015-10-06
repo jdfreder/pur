@@ -44,6 +44,7 @@
     "rimraf": "^2.4.3"
   },
   "dependencies": {
+    "chalk": "^1.1.1",
     "configstore": "^1.2.1",
     "glob": "^5.0.15",
     "underscore": "^1.8.3"
