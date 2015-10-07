@@ -46,7 +46,7 @@ export function printHeader(cellIndex, text) {
 
 export function print(cellIndex, isError, text, header) {
     let isNew = lastIndex !== cellIndex;
-    let color = isError ? colors.primary.stderr: colors.primary.stdio;
+    let color = isError ? colors.primary.stderr : colors.primary.stdio;
     let secondColor = alternateColor(cellIndex);
     if (isNew) {
         console.log(secondColor(chalk.bold(paddedNumber(cellIndex))) + ' ' + chalk.gray(header));

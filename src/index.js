@@ -3,12 +3,15 @@ let glob = require('glob');
 let args = process.argv.splice(2);
 let configstore = require('configstore');
 let conf = new configstore(require('../package.json').name);
+let chalk = require('chalk');
 let _ = require('underscore');
 
 import {dealias} from './dealias';
 import {isDir} from './file';
 import {spawn} from './run';
 import {printHeader, print} from './print';
+
+console.log(chalk.red('m') + chalk.blue('e') + chalk.green('o') + chalk.yellow('w!') + '🐱');
 
 // Look for --save to set an alias
 let newAlias;
@@ -22,6 +25,9 @@ for (let i = 0; i < args.length; i++) {
 // First arg may be an alias, check to see if it is.
 if (conf.get(args[0])) {
     let paths = conf.get(args.splice(0, 1));
+    args = paths.concat(args);
+} else if (!isDir(args[0]) && conf.get('default')) {
+    let paths = conf.get('default');
     args = paths.concat(args);
 }
 
