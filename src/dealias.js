@@ -12,9 +12,7 @@ export function dealias(alias) {
                 command = "bash -l -c 'alias -p'";
             }
             run(command).then(aliasString => {
-                console.log('aliasString', aliasString);
                 let aliases = aliasString.split('\n').map(alias => alias.trim());
-                    console.log('aliases', aliases);
                 for (let i = 0; i < aliases.length; i++) {
                     if (aliases[i].length > 0 && aliases[i].indexOf('alias ') === 0) {
                         let aliasSet = aliases[i].slice(6).split('=');
